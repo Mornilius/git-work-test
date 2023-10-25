@@ -1,16 +1,17 @@
+import Pages.AuthorizationPage;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import java.time.Duration;
 
 public class Main {
     public static void main(String[] args) {
         FirefoxDriver driver = new FirefoxDriver();
-        DataTest datatest = new DataTest();
+        AuthorizationPage datatest = new AuthorizationPage();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        datatest.startBrowser(driver, DataTest.Website);
-        datatest.clickOnInteractiveElement(driver, DataTest.EMAILEXPATH);
-        datatest.sendText(DataTest.USEREMAIL);
-        datatest.clickOnInteractiveElement(driver, DataTest.PASSWORDEXPATH);
-        datatest.sendText(DataTest.USERPASSWORD);
+        datatest.startBrowser(driver, AuthorizationPage.WEBSITE);
+        datatest.clickOnInteractiveElement(driver, AuthorizationPage.EMAILEXPATH);
+        datatest.sendText(AuthorizationPage.USEREMAIL);
+        datatest.clickOnInteractiveElement(driver, AuthorizationPage.PASSWORDEXPATH);
+        datatest.sendText(AuthorizationPage.USERPASSWORD);
         datatest.clickOnInteractiveElement(driver, "//button[@id='authButton']");
 
 

@@ -1,28 +1,34 @@
+import Pages.AuthorizationPage;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
+
+import static org.testng.Assert.assertTrue;
 
 
 public class ModuleTests {
     FirefoxDriver driver = new FirefoxDriver();
-    @org.testng.annotations.Test
+    @Test
     void startBrowserTest(){
-        driver.get(DataTest.Website);
-        Assert.assertEquals();
+        driver.get(AuthorizationPage.WEBSITE);
+        assertTrue(driver.findElement(By.xpath("//button[@id='authButton']")).isDisplayed());
     }
-    @org.testng.annotations.Test
+    @Test
     void clickAndSendEmail() throws InterruptedException {
         startBrowserTest();
         Thread.sleep(5000);
-        DataTest.element = driver.findElement(By.xpath(DataTest.EMAILEXPATH));
-        DataTest.element.click();
-        DataTest.element.sendKeys(DataTest.USEREMAIL);
+        AuthorizationPage.element = driver.findElement(By.xpath(AuthorizationPage.EMAILEXPATH));
+        AuthorizationPage.element.sendKeys(AuthorizationPage.USEREMAIL);
+        AuthorizationPage.element.sendKeys(Keys.ENTER);
+        String a = AuthorizationPage.element.getText();
+        driver.quit();
     }
-    @org.testng.annotations.Test
+    @Test
     void clickAndSendPassword(){
         startBrowserTest();
-        DataTest.element = driver.findElement(By.xpath(DataTest.PASSWORDEXPATH));
-        DataTest.element.click();
-        DataTest.element.sendKeys(DataTest.USERPASSWORD);
+        AuthorizationPage.element = driver.findElement(By.xpath(AuthorizationPage.PASSWORDEXPATH));
+        AuthorizationPage.element.click();
+        AuthorizationPage.element.sendKeys(AuthorizationPage.USERPASSWORD);
     }
 }
