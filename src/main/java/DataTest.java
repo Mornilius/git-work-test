@@ -14,7 +14,7 @@ public class DataTest {
         driver.get(site);
     }
 
-    public void clickOnTop(FirefoxDriver driver, String locator){
+    public void clickOnInteractiveElement(FirefoxDriver driver, String locator){
         element = driver.findElement(By.xpath(locator));
         element.click();
     }

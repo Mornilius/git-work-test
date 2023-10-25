@@ -1,3 +1,4 @@
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -21,8 +22,7 @@ public class PositiveTest {
         DataTest.element = driver.findElement(By.xpath(DataTest.PASSWORDEXPATH));
         DataTest.element.click();
         DataTest.element.sendKeys(DataTest.USERPASSWORD);
-        datatest.clickOnTop(driver, "//button[@id='authButton']");
-        /*wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@id='dataSend'")));*/
+        datatest.clickOnInteractiveElement(driver, "//button[@id='authButton']");
         driver.quit();
     }
     @Test
@@ -35,8 +35,9 @@ public class PositiveTest {
         DataTest.element = driver.findElement(By.xpath(DataTest.PASSWORDEXPATH));
         DataTest.element.click();
         DataTest.element.sendKeys("wwww");
-        datatest.clickOnTop(driver, "//button[@id='authButton']");
-        /*wait.until(ExpectedConditions.alertIsPresent());*/
+        datatest.clickOnInteractiveElement(driver, "//button[@id='authButton']");
+        /*WebElement allert = driver.findElement(By.xpath("//button[@id='dataSend'"));
+        *//*wait.until(ExpectedConditions.alertIsPresent());*/
         driver.quit();
     }
 }

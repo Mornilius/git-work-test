@@ -7,11 +7,11 @@ public class Main {
         DataTest datatest = new DataTest();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         datatest.startBrowser(driver, DataTest.Website);
-        datatest.clickOnTop(driver, DataTest.EMAILEXPATH);
+        datatest.clickOnInteractiveElement(driver, DataTest.EMAILEXPATH);
         datatest.sendText(DataTest.USEREMAIL);
-        datatest.clickOnTop(driver, DataTest.PASSWORDEXPATH);
+        datatest.clickOnInteractiveElement(driver, DataTest.PASSWORDEXPATH);
         datatest.sendText(DataTest.USERPASSWORD);
-        datatest.clickOnTop(driver, "//button[@id='authButton']");
+        datatest.clickOnInteractiveElement(driver, "//button[@id='authButton']");
 
 
 

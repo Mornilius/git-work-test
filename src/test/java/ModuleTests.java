@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 
 
 public class ModuleTests {
@@ -7,6 +8,7 @@ public class ModuleTests {
     @org.testng.annotations.Test
     void startBrowserTest(){
         driver.get(DataTest.Website);
+        Assert.assertEquals();
     }
     @org.testng.annotations.Test
     void clickAndSendEmail() throws InterruptedException {
