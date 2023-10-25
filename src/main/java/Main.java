@@ -6,7 +6,8 @@ public class Main {
         FirefoxDriver driver = new FirefoxDriver();
         DataTest datatest = new DataTest();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.get(DataTest.Website);
+
+        datatest.startBrowser(driver, DataTest.Website);
         datatest.clickOnTop(driver, DataTest.EMAILEXPATH);
         datatest.sendText(DataTest.USEREMAIL);
         datatest.clickOnTop(driver, DataTest.PASSWORDEXPATH);

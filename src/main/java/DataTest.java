@@ -10,6 +10,10 @@ public class DataTest {
     static final String Website = "C:\\tools\\qa-test.html";
     static WebElement element;
 
+    public void startBrowser(FirefoxDriver driver, String site){
+        driver.get(site);
+    }
+
     public void clickOnTop(FirefoxDriver driver, String locator){
         element = driver.findElement(By.xpath(locator));
         element.click();
