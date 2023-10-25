@@ -2,10 +2,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 
-<suite name="All Test Suite">
+<suite name="All ModuleTests Suite">
     <test verbose="2" preserve-order="true" name="H:/Programming/ProteiTest">
         <classes>
-            <class name="Test"></class>
+            <class name="ModuleTests"></class>
         </classes>
     </test>
 </suite>
