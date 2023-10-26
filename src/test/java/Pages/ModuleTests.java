@@ -1,8 +1,10 @@
+package Pages;
+
 import Pages.AuthorizationPage;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertTrue;
 

@@ -1,3 +1,5 @@
+package Pages;
+
 import Pages.AuthorizationPage;
 import Pages.SecondPage;
 import org.openqa.selenium.firefox.FirefoxDriver;

@@ -4,6 +4,9 @@ import java.time.Duration;
 
 public class Main {
     public static void main(String[] args) {
+        startWork();
+    }
+    public static void startWork(){
         FirefoxDriver driver = new FirefoxDriver();
         AuthorizationPage datatest = new AuthorizationPage();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
@@ -13,9 +16,5 @@ public class Main {
         datatest.clickOnInteractiveElement(driver, AuthorizationPage.PASSWORDEXPATH);
         datatest.sendText(AuthorizationPage.USERPASSWORD);
         datatest.clickOnInteractiveElement(driver, AuthorizationPage.BTN_INPUT);
-
-
-
-
     }
 }
