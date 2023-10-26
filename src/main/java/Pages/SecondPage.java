@@ -1,13 +1,14 @@
 package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 public class SecondPage {
     public static final By EMAIL_LOCATOR = By.xpath("//input[@id='dataEmail']");
     public static final By NAME_LOCATOR = By.xpath("//input[@id='dataName']");
-    public static final By SEX_LOCATOR = By.xpath("//select[@id='dataGender']%s");
+    public static final By SEX_LOCATOR = By.xpath("//select[@id='dataGender']");
     public static final By SEX_LOCATOR_MAN = By.xpath("//option[text()='Мужской']");
     public static final By SEX_LOCATOR_WOMAN = By.xpath("//option[text()='Женский']");
     public static final By CHECKBOX_ONE_LOCATOR = By.xpath("//input[@id='dataCheck11']");
@@ -42,10 +43,10 @@ public class SecondPage {
         driver.findElement(TABLE_VAR2_LOCATOR).isDisplayed();
     }
 
-    public static void clickOnActiveElements(FirefoxDriver driver, By locator){
+    public static void clickOnActiveElements(WebDriver driver, By locator){
         driver.findElement(locator).click();
     }
-    public static void sendText(FirefoxDriver driver, By locator, String text){
+    public static void sendText(WebDriver driver, By locator, String text){
         driver.findElement(locator).sendKeys(text);
     }
 }
