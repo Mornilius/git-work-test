@@ -18,7 +18,7 @@ public class ModuleTests {
     void clickAndSendEmail() throws InterruptedException {
         startBrowserTest();
         Thread.sleep(5000);
-        AuthorizationPage.element = driver.findElement(By.xpath(AuthorizationPage.EMAILEXPATH));
+        AuthorizationPage.element = driver.findElement(AuthorizationPage.EMAILEXPATH);
         AuthorizationPage.element.sendKeys(AuthorizationPage.USEREMAIL);
         AuthorizationPage.element.sendKeys(Keys.ENTER);
         String a = AuthorizationPage.element.getText();
@@ -27,7 +27,7 @@ public class ModuleTests {
     @Test
     void clickAndSendPassword(){
         startBrowserTest();
-        AuthorizationPage.element = driver.findElement(By.xpath(AuthorizationPage.PASSWORDEXPATH));
+        AuthorizationPage.element = driver.findElement(AuthorizationPage.PASSWORDEXPATH);
         AuthorizationPage.element.click();
         AuthorizationPage.element.sendKeys(AuthorizationPage.USERPASSWORD);
     }

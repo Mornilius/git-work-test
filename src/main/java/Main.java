@@ -8,11 +8,11 @@ public class Main {
         AuthorizationPage datatest = new AuthorizationPage();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         datatest.startBrowser(driver, AuthorizationPage.WEBSITE);
-        datatest.clickOnInteractiveElement(driver, AuthorizationPage.EMAILEXPATH);
+        datatest.clickOnInteractiveElement(driver,AuthorizationPage.EMAILEXPATH);
         datatest.sendText(AuthorizationPage.USEREMAIL);
         datatest.clickOnInteractiveElement(driver, AuthorizationPage.PASSWORDEXPATH);
         datatest.sendText(AuthorizationPage.USERPASSWORD);
-        datatest.clickOnInteractiveElement(driver, "//button[@id='authButton']");
+        datatest.clickOnInteractiveElement(driver, AuthorizationPage.BTN_INPUT);
 
 
 
