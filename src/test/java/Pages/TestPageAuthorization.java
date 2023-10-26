@@ -1,6 +1,7 @@
 package Pages;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -13,52 +14,53 @@ public class TestPageAuthorization {
     @BeforeMethod
     public static void startSetup(){
         driver.get(WEBSITE);
+        timeout(driver,3);
     }
     @Test
     public static void incorrectData(){
-        clickOnInteractiveElement(driver, EMAILEXPATH);
-        sendText("ddd");
-        clickOnInteractiveElement(driver, PASSWORDEXPATH);
-        sendText("ddd");
+        sendText(driver, "ddd", EMAILEXPATH);
+        sendText(driver, "ddd", PASSWORDEXPATH);
         clickOnInteractiveElement(driver,BTN_INPUT);
         timeout(driver, 3);
+
         Assert.assertTrue(driver.findElement(ERROR_MASSAGE).isDisplayed());
     }
     @Test
     public void incorrectPassword(){
-        clickOnInteractiveElement(driver, EMAILEXPATH);
-        sendText(USEREMAIL);
-        clickOnInteractiveElement(driver, PASSWORDEXPATH);
-        sendText("ddd");
+        sendText(driver, USEREMAIL, EMAILEXPATH);
+        sendText(driver, "ddd", PASSWORDEXPATH);
         clickOnInteractiveElement(driver,BTN_INPUT);
         timeout(driver, 3);
+
         Assert.assertTrue(driver.findElement(ERROR_MASSAGE).isDisplayed());
     }@Test
     public void incorrectEmail(){
-        clickOnInteractiveElement(driver, EMAILEXPATH);
-        sendText("dd");
-        clickOnInteractiveElement(driver, PASSWORDEXPATH);
-        sendText(USERPASSWORD);
+        sendText(driver, "dd", EMAILEXPATH);
+        sendText(driver, USERPASSWORD, PASSWORDEXPATH);
         clickOnInteractiveElement(driver,BTN_INPUT);
         timeout(driver, 3);
+
         Assert.assertTrue(driver.findElement(ERROR_MASSAGE).isDisplayed());
     }@Test
     public void emptyEmailPassword(){
-        clickOnInteractiveElement(driver, EMAILEXPATH);
-        sendText("");
-        clickOnInteractiveElement(driver, PASSWORDEXPATH);
-        sendText("");
+        sendText(driver, "", EMAILEXPATH);
+        sendText(driver, "", PASSWORDEXPATH);
         clickOnInteractiveElement(driver,BTN_INPUT);
         timeout(driver, 3);
+
         Assert.assertTrue(driver.findElement(ERROR_MASSAGE).isDisplayed());
     }@Test
     public void correctInput(){
-        clickOnInteractiveElement(driver, EMAILEXPATH);
-        sendText(USEREMAIL);
-        clickOnInteractiveElement(driver, PASSWORDEXPATH);
-        sendText(USERPASSWORD);
+        sendText(driver, USEREMAIL, EMAILEXPATH);
+        sendText(driver, USERPASSWORD, PASSWORDEXPATH);
         clickOnInteractiveElement(driver,BTN_INPUT);
         timeout(driver, 3);
+
         Assert.assertTrue(SecondPage.isPageDisplay(driver));
+    }
+
+    @AfterTest
+    public static void endTest(){
+        driver.quit();
     }
 }
