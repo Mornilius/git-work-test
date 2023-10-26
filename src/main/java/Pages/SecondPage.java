@@ -1,10 +1,8 @@
 package Pages;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.util.List;
 
 public class SecondPage {
     public static final By EMAIL_LOCATOR = By.xpath("//input[@id='dataEmail']");
@@ -25,10 +23,9 @@ public class SecondPage {
     public static final By TABLE_VAR1_LOCATOR = By.xpath(String.format(TABLE_STRING, "//th[text()='Выбор 1']"));
     public static final By TABLE_VAR2_LOCATOR = By.xpath(String.format(TABLE_STRING, "//th[text()='Выбор 2']"));
     public static final By MODAL_DIALOG = By.xpath("//div[@class='uk-modal-dialog']");
+    public static final By BUTTON_OK_MODAL_DIALOG = By.xpath("//button[@class='uk-button uk-button-primary uk-modal-close']");
 
-    ////table[@id="dataTable"]//td[text()="TEST"]
-
-    public static boolean isPageDisplay(FirefoxDriver driver){
+    public static boolean isPageDisplay(WebDriver driver){
         return driver.findElement(EMAIL_LOCATOR).isDisplayed()&
         driver.findElement(NAME_LOCATOR).isDisplayed()&
         driver.findElement(SEX_LOCATOR).isDisplayed()&

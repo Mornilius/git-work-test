@@ -3,12 +3,24 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
 import java.time.Duration;
+
 
 public class TestSecondPage {
     public static FirefoxDriver driver = new FirefoxDriver();
+    public static String email = "test@mail.ru";
+    public static String name = "TEST";
+    public static String woman = "Женский";
+    public static String man = "Мужской";
+    public static double chckBx1 = Double.parseDouble("1.1");
+    public static double chckBx2 = Double.parseDouble("1.2");
+    public static String rdBtn21 = "2.1";
+    public static String rdBtn22 = "2.2";
+    public static String rdBtn23 = "2.3";
+
+    @BeforeTest
     public static void startWork(){
         AuthorizationPage datatest = new AuthorizationPage();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
@@ -22,16 +34,49 @@ public class TestSecondPage {
 
     @Test
     public static void correctData(){
-        startWork();
+        //startWork();
         AuthorizationPage.timeout(driver, 3);
-        SecondPage.sendText(driver,SecondPage.EMAIL_LOCATOR, "test@mail.ru");
-        SecondPage.sendText(driver, SecondPage.NAME_LOCATOR, "TEST");
+        SecondPage.sendText(driver,SecondPage.EMAIL_LOCATOR, email);
+        SecondPage.sendText(driver, SecondPage.NAME_LOCATOR, name);
         SecondPage.clickOnActiveElements(driver, SecondPage.SEX_LOCATOR_WOMAN);
         SecondPage.clickOnActiveElements(driver, SecondPage.CHECKBOX_ONE_LOCATOR);
         SecondPage.clickOnActiveElements(driver, SecondPage.CHECKBOX_TWO_LOCATOR);
         SecondPage.clickOnActiveElements(driver, SecondPage.RADIOBTN_ONE_LOCATOR);
         SecondPage.clickOnActiveElements(driver, SecondPage.BTN_LOCATOR);
+        AuthorizationPage.timeout(driver, 2);
         Assert.assertTrue(driver.findElement(SecondPage.MODAL_DIALOG).isDisplayed());
+        SecondPage.clickOnActiveElements(driver, SecondPage.BUTTON_OK_MODAL_DIALOG);
+        Assert.assertEquals(driver.findElement(By.xpath("//table[@id='dataTable']//td[1]")).getText(), email); //актуальный результат | ожидаемый результат
+        Assert.assertEquals(driver.findElement(By.xpath("//table[@id='dataTable']//td[2]")).getText(), name);
+        Assert.assertEquals(driver.findElement(By.xpath("//table[@id='dataTable']//td[3]")).getText(), woman);
+        //Assert.assertEquals(driver.findElement(By.xpath("//table[@id='dataTable']//td[4]")).getText(), );
+        Assert.assertEquals(driver.findElement(By.xpath("//table[@id='dataTable']//td[5]")).getText(), rdBtn21);
+    }@Test
+    public static void inCorrectData(){
+        startWork();
+        AuthorizationPage.timeout(driver, 3);
+        SecondPage.sendText(driver,SecondPage.EMAIL_LOCATOR, "email");
+        SecondPage.sendText(driver, SecondPage.NAME_LOCATOR, "name");
+        SecondPage.clickOnActiveElements(driver, SecondPage.SEX_LOCATOR_WOMAN);
+        SecondPage.clickOnActiveElements(driver, SecondPage.CHECKBOX_ONE_LOCATOR);
+        SecondPage.clickOnActiveElements(driver, SecondPage.CHECKBOX_TWO_LOCATOR);
+        SecondPage.clickOnActiveElements(driver, SecondPage.RADIOBTN_ONE_LOCATOR);
+        SecondPage.clickOnActiveElements(driver, SecondPage.BTN_LOCATOR);
+        AuthorizationPage.timeout(driver, 2);
+        Assert.assertTrue(driver.findElement(By.xpath("//div[@id='dataAlertsHolder']")).isDisplayed());
+    }@Test
+    public static void emptyName(){
+        startWork();
+        AuthorizationPage.timeout(driver, 3);
+        SecondPage.sendText(driver,SecondPage.EMAIL_LOCATOR, email);
+        SecondPage.sendText(driver, SecondPage.NAME_LOCATOR, "");
+        SecondPage.clickOnActiveElements(driver, SecondPage.SEX_LOCATOR_WOMAN);
+        SecondPage.clickOnActiveElements(driver, SecondPage.CHECKBOX_ONE_LOCATOR);
+        SecondPage.clickOnActiveElements(driver, SecondPage.CHECKBOX_TWO_LOCATOR);
+        SecondPage.clickOnActiveElements(driver, SecondPage.RADIOBTN_ONE_LOCATOR);
+        SecondPage.clickOnActiveElements(driver, SecondPage.BTN_LOCATOR);
+        AuthorizationPage.timeout(driver, 2);
+        Assert.assertTrue(driver.findElement(By.xpath("//div[@id='dataAlertsHolder']")).isDisplayed());
     }
 
 }

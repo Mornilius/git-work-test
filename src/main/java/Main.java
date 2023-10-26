@@ -1,4 +1,5 @@
 import Pages.AuthorizationPage;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import java.time.Duration;
 
@@ -7,7 +8,7 @@ public class Main {
         startWork();
     }
     public static void startWork(){
-        FirefoxDriver driver = new FirefoxDriver();
+        WebDriver driver = AuthorizationPage.getWebDriver("firefox");
         AuthorizationPage datatest = new AuthorizationPage();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         datatest.startBrowser(driver, AuthorizationPage.WEBSITE);

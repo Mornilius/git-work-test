@@ -1,10 +1,13 @@
 package Pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import java.time.Duration;
+
 
 public class AuthorizationPage {
     public static final By EMAILEXPATH = By.xpath("//input[@id='loginEmail']");
@@ -16,14 +19,28 @@ public class AuthorizationPage {
     public static final String WEBSITE = "C:\\tools\\qa-test.html";
     public static WebElement element;
 
-    public static void startBrowser(FirefoxDriver driver, String site){
+
+    public static WebDriver getWebDriver(String browserName){
+        switch ((browserName)){
+            case "firefox":
+                return new FirefoxDriver();
+            case "edge":
+                return new EdgeDriver();
+            case "chrome":
+                return new ChromeDriver();
+            default:
+                throw new RuntimeException("Incorrect Browser Name");
+        }
+    }
+
+    public static void startBrowser(WebDriver driver, String site){
         driver.get(site);
     }
-    public static void timeout(FirefoxDriver driver, int time){
+    public static void timeout(WebDriver driver, int time){
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(time));
     }
 
-    public static void clickOnInteractiveElement(FirefoxDriver driver, By locator){
+    public static void clickOnInteractiveElement(WebDriver driver, By locator){
         element = driver.findElement(locator);
         element.click();
     }
