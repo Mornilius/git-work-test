@@ -21,8 +21,14 @@ public class SecondPage {
     public static final By TABLE_SEX_LOCATOR = By.xpath(String.format(TABLE_STRING, "//th[text()='Пол']"));
     public static final By TABLE_VAR1_LOCATOR = By.xpath(String.format(TABLE_STRING, "//th[text()='Выбор 1']"));
     public static final By TABLE_VAR2_LOCATOR = By.xpath(String.format(TABLE_STRING, "//th[text()='Выбор 2']"));
+    public static final By TABLE_EMAIL_TD_LOCATOR = By.xpath(String.format(TABLE_STRING, "//td[1]"));
+    public static final By TABLE_NAME_TD_LOCATOR = By.xpath(String.format(TABLE_STRING, "//td[2]"));
+    public static final By TABLE_SEX_TD_LOCATOR = By.xpath(String.format(TABLE_STRING, "//td[3]"));
+    public static final By TABLE_CHCKBOX_TD_LOCATOR = By.xpath(String.format(TABLE_STRING, "//td[4]"));
+    public static final By TABLE_RDBTN_TD_LOCATOR = By.xpath(String.format(TABLE_STRING, "//td[5]"));
     public static final By MODAL_DIALOG = By.xpath("//div[@class='uk-modal-dialog']");
     public static final By BUTTON_OK_MODAL_DIALOG = By.xpath("//button[@class='uk-button uk-button-primary uk-modal-close']");
+    public static final By ALLERT_HOLDER = By.xpath("//div[@id='dataAlertsHolder']");
 
     public static boolean isPageDisplay(WebDriver driver){
         return driver.findElement(EMAIL_LOCATOR).isDisplayed()&
@@ -41,10 +47,5 @@ public class SecondPage {
         driver.findElement(TABLE_VAR2_LOCATOR).isDisplayed();
     }
 
-    public static void clickOnActiveElements(WebDriver driver, By locator){
-        driver.findElement(locator).click();
-    }
-    public static void sendText(WebDriver driver, By locator, String text){
-        driver.findElement(locator).sendKeys(text);
-    }
+
 }
