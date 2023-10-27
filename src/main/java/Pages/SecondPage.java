@@ -1,9 +1,11 @@
 package Pages;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import static Utils.WebDriverUtils.driver;
 
 
 public class SecondPage {
+
     public static final By EMAIL_LOCATOR = By.xpath("//input[@id='dataEmail']");
     public static final By NAME_LOCATOR = By.xpath("//input[@id='dataName']");
     public static final By SEX_LOCATOR = By.xpath("//select[@id='dataGender']");
@@ -30,7 +32,7 @@ public class SecondPage {
     public static final By BUTTON_OK_MODAL_DIALOG = By.xpath("//button[@class='uk-button uk-button-primary uk-modal-close']");
     public static final By ALLERT_HOLDER = By.xpath("//div[@id='dataAlertsHolder']");
 
-    public static boolean isPageDisplay(WebDriver driver){
+    public static boolean isPageDisplay(){
         return driver.findElement(EMAIL_LOCATOR).isDisplayed()&
         driver.findElement(NAME_LOCATOR).isDisplayed()&
         driver.findElement(SEX_LOCATOR).isDisplayed()&
@@ -46,6 +48,4 @@ public class SecondPage {
         driver.findElement(TABLE_VAR1_LOCATOR).isDisplayed()&
         driver.findElement(TABLE_VAR2_LOCATOR).isDisplayed();
     }
-
-
 }
