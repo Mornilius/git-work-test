@@ -1,7 +1,5 @@
 package Pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -54,7 +52,7 @@ public class TestSecondPage {
         Assert.assertEquals(driver.findElement(TABLE_EMAIL_TD_LOCATOR).getText(), email, "актуальный или ожидаемый емаил некорректен"); //актуальный результат | ожидаемый результат
         Assert.assertEquals(driver.findElement(TABLE_NAME_TD_LOCATOR).getText(), name, "актуальное или ожидаемое имя некорректно");
         Assert.assertEquals(driver.findElement(TABLE_SEX_TD_LOCATOR).getText(), woman,"некорректный выбор актуального или ожидаемого пола");
-        Assert.assertEquals(driver.findElement(TABLE_CHCKBOX_TD_LOCATOR).getText(), chckBx1 +"," + " " + chckBx2, "некорректный выбор чекбоксов"); //String format
+        Assert.assertEquals(driver.findElement(TABLE_CHCKBOX_TD_LOCATOR).getText(), chckBx1 +", " + chckBx2, "некорректный выбор чекбоксов");
         Assert.assertEquals(driver.findElement(TABLE_RDBTN_TD_LOCATOR).getText(), rdBtn21, "актуальный или ожидаемый выбор radio button некорректен");
 
     }@Test

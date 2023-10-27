@@ -29,7 +29,7 @@ public class UtilitsAndConst {
     }
     public static void timeout(WebDriver driver, int time){
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(time));
-    }//Отделить getWebDriver, startBrowser,timeout
+    }
 
     public static void clickOnInteractiveElement(WebDriver driver, By locator){
         driver.findElement(locator).click();
